@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
 import {getCurrentToken} from "../services/auth.service";
 import toast from "react-hot-toast";
 
@@ -26,25 +25,25 @@ axiosInstance.interceptors.request.use(
     }
 );
 
-axiosInstance.interceptors.response.use(
-    (response) => {
+axiosInstance.interceptors.response.use((response) => {
         return response;
     },
     (error) => {
-        const {response} = error;
-        const navigate = useNavigate();
-
-        if (response) {
-            const {status} = response;
-            switch (status) {
-                case 401    :
-                    toast.error('Unauthorized access - redirecting to login...');
-                    navigate('/login');
-                    break;
-
+        if (error) {
+            switch (error.status) {
                 case 403:
-                    toast.error('You do not have the necessary permissions to perform this action.');
-                    navigate('/home');
+                    toast.error('You are not authorized to access this resource', {
+                        position: "top-right",
+                        duration: 5000,
+                    });
+                    window.location.href = '/home';
+                    break;
+                case 401:
+                    toast.error('You are not authenticated', {
+                        position: "top-right",
+                        duration: 5000,
+                    });
+                    window.location.href = '/login';
                     break;
 
             }
@@ -53,5 +52,6 @@ axiosInstance.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
 
 export default axiosInstance;

@@ -1,5 +1,5 @@
 import {Base64} from 'js-base64';
-import {JwtPayload, JwtTokenDto, UserLoginDto} from '../models/auth';
+import {JwtPayload, JwtTokenDto, UserCreateDto, UserLoginDto} from '../models/auth';
 import axiosInstance from "../interceptors/auth.interceptor";
 
 const USER_JWT_TOKEN_KEY = 'USER_JWT_TOKEN_KEY';
@@ -7,16 +7,23 @@ const USER_JWT_TOKEN_KEY = 'USER_JWT_TOKEN_KEY';
 export const login = async (userLoginDto: UserLoginDto): Promise<JwtTokenDto> => {
     const response = await axiosInstance.post<JwtTokenDto>(`/auth/login`, userLoginDto);
     setCurrentToken(response.data);
+
+    const event = new Event('session-changed');
+    window.dispatchEvent(event);
+
     return response.data;
 };
 
-export const register = async (userCreateDto: UserLoginDto): Promise<JwtTokenDto> => {
-    const response = await axiosInstance.post<JwtTokenDto>(`/auth/register`, userCreateDto);
+export const register = async (userCreateDto: UserCreateDto): Promise<JwtTokenDto> => {
+    const response = await axiosInstance.post<any>(`/auth/register`, userCreateDto);
     return response.data;
 };
 
 export const logout = () => {
     localStorage.removeItem(USER_JWT_TOKEN_KEY);
+
+    const event = new Event('session-changed');
+    window.dispatchEvent(event);
 };
 
 export const decodeJwt = (token: string): Record<string, any> | null => {

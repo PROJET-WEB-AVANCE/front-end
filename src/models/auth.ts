@@ -12,10 +12,13 @@ export interface UserLoginDto{
 
 export interface UserDto {
     id: number;
+    email: string;
     firstName: string;
     lastName: string;
     type: ERole;
 }
+
+
 
 export enum ERole {
     ROLE_CLIENT = "Client",
@@ -31,6 +34,7 @@ export interface JwtTokenDto {
 
 export interface JwtPayload {
     id: number;
+    firstName: string;
     role: ERole;
 }
 

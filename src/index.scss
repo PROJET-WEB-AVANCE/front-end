@@ -1,5 +1,12 @@
 
-@import 'bootstrap/scss/bootstrap';
+@use "sass:color";
+
+@function to-rgb($color) {
+  @return color.rgb($color);
+}
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
 
 body {
   margin: 0;
@@ -13,4 +20,53 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.carousel-item img {
+  transition: transform 0.5s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+
+.product-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-card-img {
+  position: relative;
+}
+
+.price-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+}
+
+.btn-gradient {
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
 }
