@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { register } from '../services/auth.service';
-import { UserCreateDto } from '../models/auth';
+import { register } from '../../services/auth.service';
+import { UserCreateDto } from '../../models/auth';
 
 const Register: React.FC = () => {
     const [registerRequest, setRegisterRequest] = useState<UserCreateDto>({

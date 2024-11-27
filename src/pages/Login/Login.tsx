@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { UserLoginDto } from '../models/auth';
-import { login } from '../services/auth.service';
+import { UserLoginDto } from '../../models/auth';
+import { login } from '../../services/auth.service';
 
 const Login: React.FC = () => {
     const [loginRequest, setLoginRequest] = useState<UserLoginDto>({ email: '', password: '' });

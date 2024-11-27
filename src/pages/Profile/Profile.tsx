@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getMyInfos } from '../services/user.service';
-import { UserDto } from '../models/auth';
+import { getMyInfos } from '../../services/user.service';
+import { UserDto } from '../../models/auth';
 import toast from 'react-hot-toast';
 
 const Profile: React.FC = () => {

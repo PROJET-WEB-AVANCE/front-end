@@ -1,0 +1,60 @@
+/* Header.css */
+.custom-header {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-header .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.custom-header .btn-outline-secondary {
+  border-color: white;
+  color: white;
+}
+
+.custom-header .btn-outline-secondary:hover {
+  background-color: white;
+  color: #6a11cb;
+}
+
+.custom-header .btn-outline-primary {
+  border-color: white;
+  color: white;
+}
+
+.custom-header .btn-outline-primary:hover {
+  background-color: white;
+  color: #2575fc;
+}
+
+.custom-header .btn-outline-success {
+  border-color: white;
+  color: white;
+}
+
+.custom-header .btn-outline-success:hover {
+  background-color: white;
+  color: #28a745;
+}
+
+.custom-header .btn-outline-danger {
+  border-color: white;
+  color: white;
+}
+
+.custom-header .btn-outline-danger:hover {
+  background-color: white;
+  color: #dc3545;
+}
+
+.custom-header a {
+  color: white;
+}
+
+.custom-header a:hover {
+  color: #ffc107;
+}

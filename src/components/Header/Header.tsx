@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getCurrentSession, logout } from '../services/auth.service';
+import './Header.scss';
+import {getCurrentSession, logout} from "../../services/auth.service";
 
 const Header: React.FC = () => {
     const navigate = useNavigate();
@@ -24,11 +25,17 @@ const Header: React.FC = () => {
     };
 
     return (
-        <header className="navbar navbar-expand-lg navbar-light bg-light px-3">
+        <header className="navbar navbar-expand-lg navbar-light bg-light px-3 custom-header">
             <a className="navbar-brand" href="/">
-                🌟 MyApp
+                🌟 SHOPY 🌟
             </a>
             <div className="ms-auto d-flex align-items-center">
+                <button
+                    className="btn btn-outline-secondary btn-sm me-2"
+                    onClick={() => navigate('/articles')}
+                >
+                    View All Articles 📚
+                </button>
                 {session ? (
                     <>
                         <a

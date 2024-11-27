@@ -1,11 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
-import Login from './pages/Login';
-import Home from './pages/Home';
+import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
 import {Toaster} from 'react-hot-toast';
-import Header from './components/Header';
-import Profile from './pages/Profile';
-import Register from "./pages/Register";
+import Header from './components/Header/Header';
+import Profile from './pages/Profile/Profile';
+import Register from "./pages/Register/Register";
 
 const App: React.FC = () => {
 
