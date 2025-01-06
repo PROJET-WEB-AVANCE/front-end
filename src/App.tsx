@@ -11,6 +11,8 @@ import ArticleDetailsPage from "./pages/ArticleDetailsPage/ArticleDetailsPage";
 import SubNavbar from "./components/SubNavbar/SubNavbar";
 import CartPage from "./components/CartPage/CartPage";
 import SearchPage from "./components/SearchPage/SearchPage";
+import Register from "./pages/Register/Register";
+import Admin from "./pages/Admin/Admin";
 
 const App: React.FC = () => {
     return (
@@ -26,7 +28,7 @@ const App: React.FC = () => {
                     <Route path="/profile" element={<Profile />} />
                     <Route path="/search" element={<SearchPage />} />
                     <Route path="/cart" element={<CartPage />} />
-
+                    <Route path="/admin" element={<Admin/>}/>
                     <Route path="/category/:categoryName" element={<CategoryPage />} />
                     <Route path="/article/:articleName" element={<ArticleDetailsPage />} />
 

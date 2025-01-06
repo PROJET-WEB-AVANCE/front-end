@@ -42,4 +42,21 @@ export interface RegisterDto {
     message: string;
 }
 
+export interface ArticleDto {
+    id: number;
+    reference: string;
+    name: string;
+    quantity: number;
+    description: string;
+    price: number;
+    categoryId: number;
+    category: CategoryDto;
+    image: string;
+}
+
+export interface CategoryDto {
+    id: number;
+    name: string;
+}
+
 
