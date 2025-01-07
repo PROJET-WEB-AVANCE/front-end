@@ -32,7 +32,7 @@ const Carousel: React.FC<{ articles: typeof mockArticles }> = ({ articles }) => 
             {articles.map((article, index) => (
                 <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={article.id}>
                     <img
-                        src={article.image || 'https://via.placeholder.com/800x400?text=Placeholder'}
+                        src={article.image || 'https://wallpapers.com/images/hd/e-commerce-pictures-zp8ewz3u3q6hxioj.jpg'}
                         className="d-block w-100 rounded-3 shadow-lg"
                         alt={article.name || 'Placeholder'}
                         style={{ maxHeight: '400px', objectFit: 'cover' }}
