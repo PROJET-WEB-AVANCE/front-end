@@ -3,9 +3,11 @@ import toast from "react-hot-toast";
 import {addArticle, deleteArticle, getAllArticles} from "../../services/admin.service";
 import {ArticleDto, CategoryDto} from "../../models/auth";
 import {getAllCategories} from "../../services/user.service";
+import {useNavigate} from "react-router-dom";
 
 const Admin : React.FC = () => {
 
+    const navigate = useNavigate();
     const [articles, setArticles] = useState<ArticleDto[] | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [categories, setCategories] = useState<CategoryDto[] | null>(null);
@@ -82,6 +84,11 @@ const Admin : React.FC = () => {
             toast.error("Article couldn't be added. Please try again.")
         }
     }
+
+    const handleEditArticle = (id: number) => {
+        console.log("ID to navigate", id)
+        navigate(`/admin/edit/${id}`);
+    };
 
     return (
         <div className="container py-5">
@@ -187,18 +194,25 @@ const Admin : React.FC = () => {
                                 className="list-group-item d-flex justify-content-between align-items-center">
                                 <div>
                                     <strong>{article.reference}</strong> - {article.name}
-                                    <br />
+                                    <br/>
                                     {article.quantity} units - {article.price} $
-                                    <br />
-
+                                    <br/>
                                     <small>Category: {category ? category.name : 'No category'}</small>
                                 </div>
-                                <button
-                                    className="btn btn-danger"
-                                    onClick={() => handleDeleteArticle(article.id)}
-                                >
-                                    Delete
-                                </button>
+                                <div className="d-flex gap-2"> {/* Ajoutez d-flex et gap-2 pour l'espacement */}
+                                    <button
+                                        className="btn btn-warning"
+                                        onClick={() => handleEditArticle(article.id)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={() => handleDeleteArticle(article.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
                             </li>
                         );
                     })}

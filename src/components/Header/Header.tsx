@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { getCart } from "../../services/cart.service";
 import { getCurrentSession, logout } from "../../services/auth.service";
 import "./Header.scss";
+import {ERole} from "../../models/auth";
 
 const Header: React.FC = () => {
     const navigate = useNavigate();
@@ -46,6 +47,8 @@ const Header: React.FC = () => {
         navigate("/login");
     };
 
+    const isAdmin = session?.role === ERole.ROLE_ADMIN;
+
     return (
         <header className="navbar navbar-expand-lg bg-white shadow-lg sticky-top header-container">
             <div className="container-fluid">
@@ -72,6 +75,14 @@ const Header: React.FC = () => {
                         🛒
                         {cartCount > 0 && <span className="badge">{cartCount}</span>}
                     </button>
+                {isAdmin && (
+                    <button
+                        className="btn btn-outline-warning btn-sm me-2"
+                        onClick={() => navigate('/admin')}
+                    >
+                        Gestion de l'inventaire 🛠️
+                    </button>
+                )}
                     {session ? (
                         <>
                             <button
