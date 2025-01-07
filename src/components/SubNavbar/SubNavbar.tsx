@@ -18,7 +18,7 @@ const SubNavbar: React.FC = () => {
     }, []);
 
     return (
-        <nav className="sub-navbar navbar navbar-expand-lg bg-primary">
+        <nav className="sub-navbar navbar p-0 navbar-expand-lg bg-primary">
             <div className="container">
                 <ul className="navbar-nav">
                     {categories.map((category) => (
