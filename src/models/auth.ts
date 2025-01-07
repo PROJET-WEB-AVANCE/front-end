@@ -59,4 +59,10 @@ export interface CategoryDto {
     name: string;
 }
 
+export interface EditedProfileDto {
+    firstName: string;
+    lastName: string;
+    password: string;
+}
+
 

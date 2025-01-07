@@ -14,6 +14,7 @@ import SearchPage from "./components/SearchPage/SearchPage";
 import Register from "./pages/Register/Register";
 import Admin from "./pages/Admin/Admin";
 import EditItem from "./pages/EditItem/EditItem";
+import EditProfile from "./pages/EditProfile/EditProfile";
 
 const App: React.FC = () => {
     return (
@@ -33,6 +34,7 @@ const App: React.FC = () => {
                     <Route path="/admin/edit/:id" element={<EditItem/>}/>
                     <Route path="/category/:categoryName" element={<CategoryPage />} />
                     <Route path="/article/:articleName" element={<ArticleDetailsPage />} />
+                    <Route path="/profile/:id" element={<EditProfile/>}/>
                     <Route path="*" element={<Navigate to="/home" replace />} />
                 </Routes>
             </Router>

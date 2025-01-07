@@ -1,4 +1,4 @@
-import {CategoryDto, UserDto} from "../models/auth";
+import {CategoryDto, EditedProfileDto, UserDto} from "../models/auth";
 import axiosInstance from "../interceptors/auth.interceptor";
 
 
@@ -11,3 +11,8 @@ export const getAllCategories = async () => {
     const response = await axiosInstance.get<CategoryDto[]>(`/categories`)
     return response.data;
 }
+
+export const updateUser = async (user : EditedProfileDto) =>{
+    return null;
+}
+

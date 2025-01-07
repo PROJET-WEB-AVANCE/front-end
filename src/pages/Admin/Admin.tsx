@@ -86,7 +86,7 @@ const Admin : React.FC = () => {
     }
 
     const handleEditArticle = (id: number) => {
-        console.log("ID to navigate", id)
+
         navigate(`/admin/edit/${id}`);
     };
 
@@ -199,7 +199,7 @@ const Admin : React.FC = () => {
                                     <br/>
                                     <small>Category: {category ? category.name : 'No category'}</small>
                                 </div>
-                                <div className="d-flex gap-2"> {/* Ajoutez d-flex et gap-2 pour l'espacement */}
+                                <div className="d-flex gap-2">
                                     <button
                                         className="btn btn-warning"
                                         onClick={() => handleEditArticle(article.id)}

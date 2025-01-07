@@ -1,5 +1,5 @@
 import axiosInstance from "../interceptors/auth.interceptor";
-import {ArticleDto, CategoryDto} from "../models/auth";
+import {ArticleDto} from "../models/auth";
 import axios from "axios";
 
 export const getAllArticles = async (): Promise<ArticleDto[]> => {

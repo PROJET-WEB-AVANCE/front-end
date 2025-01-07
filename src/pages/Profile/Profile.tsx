@@ -3,8 +3,10 @@ import { getMyInfos } from '../../services/user.service';
 import { UserDto } from '../../models/auth';
 import toast from 'react-hot-toast';
 import './Profile.scss';
+import {useNavigate} from "react-router-dom";
 
 const Profile: React.FC = () => {
+    const navigate = useNavigate();
     const [userInfo, setUserInfo] = useState<UserDto | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -22,6 +24,11 @@ const Profile: React.FC = () => {
 
         fetchMyInfos();
     }, []);
+
+
+    function handleEditProfile(id: number) {
+         navigate(`/profile/${id}`);
+    }
 
     if (loading) {
         return <div className="container py-5 text-center">Loading your information...</div>;
@@ -45,8 +52,9 @@ const Profile: React.FC = () => {
                 <div className="card-body">
                     <div className="d-flex align-items-center">
                         <div className="text-center me-4">
-                            <div className="bg-light rounded-circle d-flex justify-content-center align-items-center" style={{ width: 150, height: 150 }}>
-                                <i className="fas fa-user-circle text-secondary" style={{ fontSize: '140px' }}></i>
+                            <div className="bg-light rounded-circle d-flex justify-content-center align-items-center"
+                                 style={{width: 150, height: 150}}>
+                                <i className="fas fa-user-circle text-secondary" style={{fontSize: '140px'}}></i>
                             </div>
                         </div>
                         <div>
@@ -54,12 +62,19 @@ const Profile: React.FC = () => {
                             <p><strong>Email:</strong> {userInfo.email}</p>
                             <p><strong>Role:</strong> {userInfo.type}</p>
                             <p><strong>Member ID:</strong> {userInfo.id}</p>
-                        </div>
+                            <button
+                                className="btn btn-warning"
+                                onClick={() => handleEditProfile(userInfo.id)}
+                            >
+                                Edit Profile ✏️
+                            </button>
                     </div>
                 </div>
             </div>
         </div>
-    );
+</div>
+)
+    ;
 };
 
 export default Profile;
