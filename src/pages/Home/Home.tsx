@@ -1,4 +1,5 @@
 import React from 'react';
+import './Home.scss';
 
 const mockArticles = [
     { id: 1, reference: 'A1001', name: 'Produit 1', quantity: 10, price: 99.99, category: 'Category 1', image: '' },
@@ -16,11 +17,11 @@ const Home: React.FC = () => {
 
             <Carousel articles={mockArticles} />
 
-            <div className="row">
-                {mockArticles.map((article) => (
-                    <ProductCard key={article.id} article={article} />
-                ))}
-            </div>
+            {/*<div className="row">*/}
+            {/*    {mockArticles.map((article) => (*/}
+            {/*        <ProductCard key={article.id} article={article} />*/}
+            {/*    ))}*/}
+            {/*</div>*/}
         </div>
     );
 };

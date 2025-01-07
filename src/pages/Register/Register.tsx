@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { register } from '../../services/auth.service';
 import { UserCreateDto } from '../../models/auth';
+import './Register.scss';
 
 const Register: React.FC = () => {
     const [registerRequest, setRegisterRequest] = useState<UserCreateDto>({
@@ -74,7 +75,7 @@ const Register: React.FC = () => {
                     </button>
                 </form>
                 <p className="text-center text-muted mt-3">
-                    <small>Already have an account? <button onClick={() => navigate('/login')} className="text-primary fw-bold btn btn-outline-primary">Login</button></small>
+                    <small>Already have an account? <button onClick={() => navigate('/login')} className="text-primary fw-bold btn btn-outline-primary mt-0">Login</button></small>
                 </p>
             </div>
         </div>

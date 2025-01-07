@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getMyInfos } from '../../services/user.service';
 import { UserDto } from '../../models/auth';
 import toast from 'react-hot-toast';
+import './Profile.scss';
 
 const Profile: React.FC = () => {
     const [userInfo, setUserInfo] = useState<UserDto | null>(null);
