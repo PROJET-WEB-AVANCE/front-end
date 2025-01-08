@@ -1,4 +1,5 @@
 import React from 'react';
+import './Home.scss';
 
 const mockArticles = [
     { id: 1, reference: 'A1001', name: 'Produit 1', quantity: 10, price: 99.99, category: 'Category 1', image: '' },
@@ -16,11 +17,11 @@ const Home: React.FC = () => {
 
             <Carousel articles={mockArticles} />
 
-            <div className="row">
-                {mockArticles.map((article) => (
-                    <ProductCard key={article.id} article={article} />
-                ))}
-            </div>
+            {/*<div className="row">*/}
+            {/*    {mockArticles.map((article) => (*/}
+            {/*        <ProductCard key={article.id} article={article} />*/}
+            {/*    ))}*/}
+            {/*</div>*/}
         </div>
     );
 };
@@ -31,7 +32,7 @@ const Carousel: React.FC<{ articles: typeof mockArticles }> = ({ articles }) => 
             {articles.map((article, index) => (
                 <div className={`carousel-item ${index === 0 ? 'active' : ''}`} key={article.id}>
                     <img
-                        src={article.image || 'https://via.placeholder.com/800x400?text=Placeholder'}
+                        src={article.image || 'https://wallpapers.com/images/hd/e-commerce-pictures-zp8ewz3u3q6hxioj.jpg'}
                         className="d-block w-100 rounded-3 shadow-lg"
                         alt={article.name || 'Placeholder'}
                         style={{ maxHeight: '400px', objectFit: 'cover' }}

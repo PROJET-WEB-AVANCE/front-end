@@ -1,0 +1,119 @@
+.container {
+  padding: 2rem 1rem;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #6c757d;
+    margin-top: 2rem;
+  }
+
+  .list-group {
+    .list-group-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #f9f9f9;
+        transform: translateY(-3px);
+      }
+
+      strong {
+        font-size: 1.2rem;
+        color: #212529;
+      }
+
+      .text-muted {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-top: 0.5rem;
+      }
+
+      .form-control {
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        padding: 0.4rem;
+        text-align: center;
+
+        &:focus {
+          outline: none;
+          border-color: #007bff;
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+        }
+      }
+
+      .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        border-radius: 20px;
+        padding: 0.5rem 1rem;
+        color: #fff;
+        font-weight: bold;
+        transition: background 0.3s, transform 0.2s;
+
+        &:hover {
+          background-color: #c82333;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff5722;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .d-flex {
+    justify-content: space-between;
+
+    .btn {
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+
+      &.btn-warning {
+        background-color: #ffc107;
+        color: #212529;
+        border: none;
+
+        &:hover {
+          background-color: #e0a800;
+          transform: scale(1.05);
+        }
+      }
+
+      &.btn-success {
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+
+        &:hover {
+          background-color: #218838;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

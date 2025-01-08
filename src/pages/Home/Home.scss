@@ -1,0 +1,101 @@
+.container {
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #007bff, #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.carousel {
+  margin-bottom: 2rem;
+}
+
+.carousel .carousel-inner .carousel-item img {
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.carousel .carousel-inner .carousel-item img:hover {
+  transform: scale(1.02);
+}
+
+.carousel .carousel-caption {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.product-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card-img {
+  position: relative;
+}
+
+.product-card-img .price-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #28a745;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.product-card-img img {
+  transition: transform 0.3s;
+}
+
+.product-card-img img:hover {
+  transform: scale(1.05);
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-body h5 {
+  color: #007bff;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-body p {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+.btn {
+  margin-top: 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}

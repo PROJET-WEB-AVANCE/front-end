@@ -1,0 +1,120 @@
+.category-page {
+  padding: 2rem 1rem;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  .filters {
+    input {
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+      }
+    }
+
+    select {
+      border-radius: 20px;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      background-color: #f8f9fa;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+    }
+  }
+
+  .product-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      transition: transform 0.3s;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .card-body {
+      h5 {
+        font-size: 1.25rem;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #6c757d;
+      }
+
+      .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: all 0.3s;
+
+        &.btn-primary {
+          background-color: #007bff;
+          color: white;
+          border: none;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+
+        &.btn-outline-primary {
+          background-color: transparent;
+          color: #007bff;
+          border: 1px solid #007bff;
+
+          &:hover {
+            background-color: #007bff;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  .pagination {
+    .page-item {
+      &.active .page-link {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+      }
+
+      .page-link {
+        border-radius: 30px;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #007bff;
+          color: white;
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { UserLoginDto } from '../../models/auth';
 import { login } from '../../services/auth.service';
+import './Login.scss';
 
 const Login: React.FC = () => {
     const [loginRequest, setLoginRequest] = useState<UserLoginDto>({ email: '', password: '' });
@@ -49,7 +50,7 @@ const Login: React.FC = () => {
                     </button>
                 </form>
                 <p className="text-center text-muted mt-3">
-                    <small>Don't have an account? <button onClick={() => navigate('/register')} className="text-primary fw-bold btn btn-outline-primary">Sign up</button></small>
+                    <small>Don't have an account? <button onClick={() => navigate('/register')} className="text-primary fw-bold btn btn-outline-primary mt-0">Sign up</button></small>
                 </p>
             </div>
         </div>
