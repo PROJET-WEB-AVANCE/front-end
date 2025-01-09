@@ -23,7 +23,6 @@ const EditProfile: React.FC = () => {
 
         window.addEventListener('session-changed', handleSessionChange);
 
-
         const fetchUserInfo = async () => {
             if (session?.id !== parseInt(id as string)) {
                 navigate('/home');
@@ -35,7 +34,7 @@ const EditProfile: React.FC = () => {
                 setUserInfo(data);
                 setUpdatedUserInfo({
                     ...data,
-                    password: "", // Ajoutez un champ mot de passe vide
+                    password: "",
                 });
             } catch (err: any) {
                 toast.error('Failed to load user info. Please try again.');
@@ -73,6 +72,7 @@ const EditProfile: React.FC = () => {
             try {
                 await updateUser(updatedUserInfo);
                 toast.success('Profile updated successfully');
+
                 navigate(`/profile/${userInfo!.id}`);
             } catch (err: any) {
                 toast.error('Failed to update profile. Please try again.');
@@ -133,7 +133,7 @@ const EditProfile: React.FC = () => {
                         </div>
                         <div className="mb-3 position-relative">
                             <label htmlFor="password" className="form-label">
-                                Password
+                                New Password
                             </label>
                             <input
                                 type={passwordVisible ? "text" : "password"}
@@ -142,7 +142,6 @@ const EditProfile: React.FC = () => {
                                 name="password"
                                 value={updatedUserInfo?.password || ''}
                                 onChange={handleChange}
-                                required
                             />
                             <button
                                 type="button"
