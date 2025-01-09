@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { getArticleById, updateArticle } from '../../services/admin.service';
-import { ArticleDto, CategoryDto } from '../../models/auth';
 import { getAllCategories } from '../../services/user.service';
+import {ArticleDto} from "../../models/article";
+import {CategoryDto} from "../../models/category";
 
 const EditItem: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -57,23 +58,13 @@ const EditItem: React.FC = () => {
                 article && (
                     <form onSubmit={handleUpdateArticle}>
                         <div className="mb-3">
-                            <label htmlFor="reference" className="form-label">Reference</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="reference"
-                                value={article.reference}
-                                onChange={(e) => setArticle({ ...article, reference: e.target.value })}
-                            />
-                        </div>
-                        <div className="mb-3">
                             <label htmlFor="name" className="form-label">Name</label>
                             <input
                                 type="text"
                                 className="form-control"
                                 id="name"
                                 value={article.name}
-                                onChange={(e) => setArticle({ ...article, name: e.target.value })}
+                                onChange={(e) => setArticle({...article, name: e.target.value})}
                             />
                         </div>
                         <div className="mb-3">
@@ -83,7 +74,7 @@ const EditItem: React.FC = () => {
                                 className="form-control"
                                 id="description"
                                 value={article.description}
-                                onChange={(e) => setArticle({ ...article, description: e.target.value })}
+                                onChange={(e) => setArticle({...article, description: e.target.value})}
                             />
                         </div>
                         <div className="mb-3">
@@ -93,7 +84,7 @@ const EditItem: React.FC = () => {
                                 className="form-control"
                                 id="quantity"
                                 value={article.quantity}
-                                onChange={(e) => setArticle({ ...article, quantity: parseInt(e.target.value) })}
+                                onChange={(e) => setArticle({...article, quantity: parseInt(e.target.value)})}
                             />
                         </div>
                         <div className="mb-3">
@@ -103,7 +94,7 @@ const EditItem: React.FC = () => {
                                 className="form-control"
                                 id="price"
                                 value={article.price}
-                                onChange={(e) => setArticle({ ...article, price: parseFloat(e.target.value) })}
+                                onChange={(e) => setArticle({...article, price: parseFloat(e.target.value)})}
                             />
                         </div>
                         <div className="mb-3">
@@ -111,14 +102,13 @@ const EditItem: React.FC = () => {
                             <select
                                 id="SelectedCategory"
                                 className="form-control"
-                                value={article.categoryId}
+                                value={article.category.id}
                                 onChange={(e) => {
                                     const selectedCategoryId = parseInt(e.target.value);
                                     const selectedCategory = categories?.find(category => category.id === selectedCategoryId);
                                     setArticle({
                                         ...article,
-                                        categoryId: selectedCategoryId,
-                                        category: selectedCategory || { id: 0, name: '' }
+                                        category: selectedCategory || {id: 0, name: ''}
                                     });
                                 }}
                             >
@@ -137,7 +127,7 @@ const EditItem: React.FC = () => {
                                 className="form-control"
                                 id="image"
                                 value={article.image}
-                                onChange={(e) => setArticle({ ...article, image: e.target.value })}
+                                onChange={(e) => setArticle({...article, image: e.target.value})}
                             />
                         </div>
                         <button type="submit" className="btn btn-primary">Update Article</button>

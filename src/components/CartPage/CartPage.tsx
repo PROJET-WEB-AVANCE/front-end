@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCart, removeFromCart, clearCart, updateCartItemQuantity } from "../../services/cart.service";
+import {getCart, removeFromCart, clearCart, updateCartItemQuantity, cartCheckout} from "../../services/cart.service";
 import { getCurrentSession } from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -31,15 +31,15 @@ const CartPage: React.FC = () => {
         toast.success("Cart cleared");
     };
 
-    const handleQuantityChange = (name: string, quantity: number) => {
+    const handleQuantityChange = (id: number, quantity: number) => {
         if (!Number.isInteger(quantity) || quantity < 1) {
             toast.error("Quantity must be a positive integer");
             return;
         }
-        updateCartItemQuantity(name, quantity);
+        updateCartItemQuantity(id, quantity);
     };
 
-    const handleCheckout = () => {
+    const handleCheckout = async () => {
         if (!session) {
             toast.error("Please log in to place an order");
             navigate("/login");
@@ -47,9 +47,12 @@ const CartPage: React.FC = () => {
         }
 
         const orderItems = cart.items.map((item) => ({
-            articleName: item.article?.name || "Unknown",
+            id: item.article?.id || 0,
+            name: item.article?.name || "Unknown",
             quantity: item.quantity,
         }));
+
+        await cartCheckout(orderItems);
 
         console.log("Order sent to backend:", orderItems);
 
@@ -83,7 +86,7 @@ const CartPage: React.FC = () => {
                                         style={{ width: "70px" }}
                                         value={item.quantity}
                                         onChange={(e) =>
-                                            handleQuantityChange(item.article?.name || "", parseInt(e.target.value, 10))
+                                            handleQuantityChange(item.article?.id || 0 , parseInt(e.target.value, 10))
                                         }
                                     />
                                     <button

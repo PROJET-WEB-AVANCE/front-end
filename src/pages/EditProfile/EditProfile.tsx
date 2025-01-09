@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getMyInfos, updateUser } from '../../services/user.service';
-import { EditedProfileDto, UserDto } from '../../models/auth';
+import { UserDto } from '../../models/auth';
 import toast from 'react-hot-toast';
 import { getCurrentSession } from "../../services/auth.service";
+import {EditedProfileDto} from "../../models/profile";
 
 const EditProfile: React.FC = () => {
     const { id } = useParams<{ id: string }>();

@@ -1,4 +1,5 @@
 import { ArticleDto } from "../models/article";
+import axiosInstance from "../interceptors/auth.interceptor";
 
 const CART_KEY = "shopping-cart";
 
@@ -11,7 +12,7 @@ export const getCart = (): { items: CartItem[]; total: number; totalItems: numbe
     const cart = localStorage.getItem(CART_KEY);
     const parsedCart = cart ? JSON.parse(cart) : { items: [], total: 0 };
 
-    const totalItems = parsedCart.items.reduce((sum: number, item: CartItem) => sum + item.quantity, 0);
+    const totalItems = parsedCart.items.reduce((sum: number, item: CartItem) =>  sum + item.quantity, 0);
 
     return { ...parsedCart, totalItems };
 };
@@ -45,9 +46,9 @@ export const removeFromCart = (name: string): void => {
     window.dispatchEvent(new Event("cart-updated"));
 };
 
-export const updateCartItemQuantity = (name: string, quantity: number): void => {
+export const updateCartItemQuantity = (id: number, quantity: number): void => {
     const cart = getCart();
-    const item = cart.items.find((item) => item.article?.name === name);
+    const item = cart.items.find((item) => item.article?.id === id);
 
     if (item) {
         cart.total += (quantity - item.quantity) * item.article.price;
@@ -60,4 +61,10 @@ export const updateCartItemQuantity = (name: string, quantity: number): void => 
 export const clearCart = (): void => {
     localStorage.removeItem(CART_KEY);
     window.dispatchEvent(new Event("cart-updated"));
+};
+
+export const cartCheckout = async  (items: { id: number; name: string;  quantity: number }[]) => {
+    console.log("Sending cart : ", items)
+    const response = await axiosInstance.post(`/cart/checkout`, JSON.stringify(items));
+    return response.data;
 };
