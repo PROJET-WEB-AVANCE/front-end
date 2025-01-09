@@ -5,7 +5,6 @@ import Header from './components/Header/Header';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
-import Register from './pages/Register/Register';
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
 import ArticleDetailsPage from "./pages/ArticleDetailsPage/ArticleDetailsPage";
 import SubNavbar from "./components/SubNavbar/SubNavbar";
