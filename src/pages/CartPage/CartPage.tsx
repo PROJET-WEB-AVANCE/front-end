@@ -54,10 +54,11 @@ const CartPage: React.FC = () => {
 
         await orderCheckout(orderItems);
 
-        console.log("Order sent to backend:", orderItems);
+
 
         toast.success("Order placed successfully!");
         clearCart();
+        navigate("/profile/order");
     };
 
     return (

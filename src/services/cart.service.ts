@@ -64,7 +64,7 @@ export const clearCart = (): void => {
 };
 
 export const orderCheckout = async  (items: { id: number; name: string;  quantity: number }[]) => {
-    console.log("Sending order : ", items)
+
     const response = await axiosInstance.post(`/order/checkout`, JSON.stringify(items));
     return response.data;
 };

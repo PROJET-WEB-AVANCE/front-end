@@ -23,7 +23,6 @@ export const updateOrder = async (order: OrderDto) => {
 }
 
 export const validateOrder = async (orderId: number) => {
-    console.log("Validate Order : ", orderId);
     const response = await axiosInstance.post(`/order/accept/${orderId}`);
     return response.data;
 }

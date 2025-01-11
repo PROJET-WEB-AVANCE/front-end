@@ -34,6 +34,7 @@ const EditOrder: React.FC = () => {
             const updatedOrder = {...order, status};
             setOrder(updatedOrder);
             await updateOrder(order);
+            toast.success("Order successfully edited");
             navigate("/admin/order");
 
         }

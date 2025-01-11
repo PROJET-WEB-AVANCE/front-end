@@ -78,7 +78,7 @@ const Admin : React.FC = () => {
         try{
 
             await deleteArticle(id);
-            console.log("Delete item ID : ", id);
+
             setArticles((prev) => prev?.filter((article) => article.id !== id) || []);
             toast.success("Article successfully deleted.")
         }catch (err : any){

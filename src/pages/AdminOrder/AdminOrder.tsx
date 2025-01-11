@@ -4,6 +4,7 @@ import {AllOrderDto, Estatus, OrderDto} from "../../models/order";
 import {deleteOrder, getOrders, validateOrder} from "../../services/order.service";
 import {getCurrentSession} from "../../services/auth.service";
 import {ERole, UserDto} from "../../models/auth";
+import toast from "react-hot-toast";
 
 function AdminOrder() {
 
@@ -49,12 +50,13 @@ function AdminOrder() {
     const handleDeleteOrder = async (orderId: number) => {
         const deletedOrder = await deleteOrder(orderId);
         setOrders(orders!.filter(order => order.id !== orderId));
+        toast.success("Order successfully deleted");
         return deletedOrder;
     };
 
 
     const handleEditOrder = (order: OrderDto) => {
-        console.log("Order : ", order);
+
         navigate("/admin/order/edit", { state: { order } });
         return;
 
@@ -63,6 +65,7 @@ function AdminOrder() {
     const handleValidateOrder = async (orderId: number) => {
         const order = await validateOrder(orderId);
         setOrders(orders!.filter(order => order.id !== orderId));
+        toast.success("Order successfully validated");
         return order;
     }
 
