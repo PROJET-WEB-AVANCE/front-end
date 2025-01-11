@@ -26,9 +26,14 @@ const Profile: React.FC = () => {
     }, []);
 
 
-    function handleEditProfile(id: number) {
-         navigate(`/profile/${id}`);
+    function handleEditProfile() {
+         navigate(`/profile/edit`);
     }
+
+    function handleViewOrders() {
+        navigate(`/profile/order`);
+    }
+
 
     if (loading) {
         return <div className="container py-5 text-center">Loading your information...</div>;
@@ -64,17 +69,23 @@ const Profile: React.FC = () => {
                             <p><strong>Member ID:</strong> {userInfo.id}</p>
                             <button
                                 className="btn btn-warning"
-                                onClick={() => handleEditProfile(userInfo.id)}
+                                onClick={() => handleEditProfile()}
                             >
                                 Edit Profile ✏️
                             </button>
+                            <button
+                                className="btn btn-info"
+                                onClick={() => handleViewOrders()}
+                            >
+                                View Orders 📦
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</div>
-)
-    ;
+    )
+        ;
 };
 
 export default Profile;

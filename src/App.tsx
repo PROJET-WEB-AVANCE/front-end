@@ -12,8 +12,11 @@ import CartPage from "./components/CartPage/CartPage";
 import SearchPage from "./components/SearchPage/SearchPage";
 import Register from "./pages/Register/Register";
 import Admin from "./pages/Admin/Admin";
+import AdminOrder from "./pages/AdminOrder/AdminOrder";
 import EditItem from "./pages/EditItem/EditItem";
 import EditProfile from "./pages/EditProfile/EditProfile";
+import MyOrders from "./pages/myorders/MyOrders";
+import EditOrder from "./pages/EditOrder/EditOrder";
 
 const App: React.FC = () => {
     return (
@@ -30,10 +33,14 @@ const App: React.FC = () => {
                     <Route path="/search" element={<SearchPage />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="/admin" element={<Admin/>}/>
+                    <Route path="/admin/order" element={<AdminOrder/>}/>
                     <Route path="/admin/edit/:id" element={<EditItem/>}/>
                     <Route path="/category/:categoryName" element={<CategoryPage />} />
                     <Route path="/article/:articleName" element={<ArticleDetailsPage />} />
-                    <Route path="/profile/:id" element={<EditProfile/>}/>
+                    <Route path="/profile/edit" element={<EditProfile/>}/>
+                    <Route path="/profile/order" element={<MyOrders/>}/>
+                    <Route path="/admin/order/:id" element={<EditOrder/>}/>
+
                     <Route path="*" element={<Navigate to="/home" replace />} />
                 </Routes>
             </Router>

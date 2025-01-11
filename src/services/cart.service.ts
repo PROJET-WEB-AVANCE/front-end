@@ -63,8 +63,8 @@ export const clearCart = (): void => {
     window.dispatchEvent(new Event("cart-updated"));
 };
 
-export const cartCheckout = async  (items: { id: number; name: string;  quantity: number }[]) => {
-    console.log("Sending cart : ", items)
-    const response = await axiosInstance.post(`/cart/checkout`, JSON.stringify(items));
+export const orderCheckout = async  (items: { id: number; name: string;  quantity: number }[]) => {
+    console.log("Sending order : ", items)
+    const response = await axiosInstance.post(`/order/checkout`, JSON.stringify(items));
     return response.data;
 };

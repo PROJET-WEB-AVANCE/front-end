@@ -7,7 +7,6 @@ import { getCurrentSession } from "../../services/auth.service";
 import {EditedProfileDto} from "../../models/profile";
 
 const EditProfile: React.FC = () => {
-    const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const [session, setSession] = useState(() => getCurrentSession());
 
@@ -18,18 +17,12 @@ const EditProfile: React.FC = () => {
     const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
 
     useEffect(() => {
-        const handleSessionChange = () => {
-            setSession(getCurrentSession());
-        };
-
-        window.addEventListener('session-changed', handleSessionChange);
+        if (session === null) {
+            navigate('/home');
+            return;
+        }
 
         const fetchUserInfo = async () => {
-            if (session?.id !== parseInt(id as string)) {
-                navigate('/home');
-                return;
-            }
-
             try {
                 const data = await getMyInfos();
                 setUserInfo(data);
@@ -46,11 +39,7 @@ const EditProfile: React.FC = () => {
 
         fetchUserInfo();
 
-
-        return () => {
-            window.removeEventListener('session-changed', handleSessionChange);
-        };
-    }, [id, session, navigate]);
+    }, [session, navigate]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         if (updatedUserInfo) {
@@ -79,6 +68,7 @@ const EditProfile: React.FC = () => {
                 toast.error('Failed to update profile. Please try again.');
             } finally {
                 setIsSaving(false);
+                navigate("/profile");
             }
         }
     };

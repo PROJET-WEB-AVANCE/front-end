@@ -48,6 +48,7 @@ const Header: React.FC = () => {
     };
 
     const isAdmin = session?.role === ERole.ROLE_ADMIN;
+    const isSales = session?.role === ERole.ROLE_SALES;
 
     return (
         <header className="navbar navbar-expand-lg bg-white shadow-lg sticky-top header-container">
@@ -75,14 +76,24 @@ const Header: React.FC = () => {
                         🛒
                         {cartCount > 0 && <span className="badge">{cartCount}</span>}
                     </button>
-                {isAdmin && (
-                    <button
-                        className="btn btn-outline-warning btn-sm me-2"
-                        onClick={() => navigate('/admin')}
-                    >
-                        Gestion de l'inventaire 🛠️
-                    </button>
-                )}
+                    {(isAdmin || isSales) && (
+                        <>
+                            {isAdmin && (
+                                <button
+                                    className="btn btn-outline-warning btn-sm me-2"
+                                    onClick={() => navigate('/admin')}
+                                >
+                                    Gestion de l'inventaire 🛠️
+                                </button>
+                            )}
+                            <button
+                                className="btn btn-outline-info btn-sm me-2"
+                                onClick={() => navigate('/admin/order')}
+                            >
+                                Gestion des commandes 📦
+                            </button>
+                        </>
+                    )}
                     {session ? (
                         <>
                             <button

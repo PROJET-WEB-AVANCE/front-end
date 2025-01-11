@@ -7,16 +7,20 @@ import {useNavigate} from "react-router-dom";
 import {getAllArticles} from "../../services/article.service";
 import {ArticleDto} from "../../models/article";
 import {CategoryDto} from "../../models/category";
+import {getCurrentSession} from "../../services/auth.service";
+import {ERole} from "../../models/auth";
 
 const Admin : React.FC = () => {
 
     const navigate = useNavigate();
+    const [session, setSession] = useState(() => getCurrentSession());
     const [articles, setArticles] = useState<ArticleDto[] | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [categories, setCategories] = useState<CategoryDto[] | null>(null);
     const [newArticle, setNewArticle] = useState<ArticleDto>({
         id: 0,
         name: '',
+        reference: '',
         description: '',
         quantity: 0,
         price: 0,
@@ -31,6 +35,16 @@ const Admin : React.FC = () => {
 
 
     useEffect(() => {
+        if (session === null){
+            navigate("/login");
+            return ;
+        }
+
+        if(session!.role === ERole.ROLE_CLIENT){
+            navigate('/home');
+            return;
+        }
+
         const fetchAllArticles = async () => {
             try {
                 const offset = (currentPage - 1) * articlesPerPage;
@@ -76,6 +90,7 @@ const Admin : React.FC = () => {
         setNewArticle({
             id: 0,
             name: '',
+            reference: '',
             description: '',
             quantity: 0,
             price: 0,
@@ -128,6 +143,16 @@ const Admin : React.FC = () => {
                         id="description"
                         value={newArticle.description}
                         onChange={(e) => setNewArticle({...newArticle, description: e.target.value})}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="reference" className="form-label">Réference</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="reference"
+                        value={newArticle.reference}
+                        onChange={(e) => setNewArticle({...newArticle, reference: e.target.value})}
                     />
                 </div>
                 <div className="mb-3">

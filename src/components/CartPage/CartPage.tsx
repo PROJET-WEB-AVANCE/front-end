@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {getCart, removeFromCart, clearCart, updateCartItemQuantity, cartCheckout} from "../../services/cart.service";
+import {getCart, removeFromCart, clearCart, updateCartItemQuantity, orderCheckout} from "../../services/cart.service";
 import { getCurrentSession } from "../../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -52,7 +52,7 @@ const CartPage: React.FC = () => {
             quantity: item.quantity,
         }));
 
-        await cartCheckout(orderItems);
+        await orderCheckout(orderItems);
 
         console.log("Order sent to backend:", orderItems);
 
