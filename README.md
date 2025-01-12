@@ -1,46 +1,91 @@
-# Getting Started with Create React App
+# Projet Web Avancé - React & Backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet utilise React pour le front-end et un backend avec NestJS. Vous pouvez également utiliser Docker pour faire fonctionner les deux parties.
 
-## Available Scripts
+Les répos git sont trouvables ici : https://github.com/PROJET-WEB-AVANCE
 
-In the project directory, you can run:
+## Installation du Frontend
 
-### `npm start`
+1. Clonez ce repository.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Allez dans le répertoire du frontend et installez les dépendances :
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+   ```bash
+   npm install
+   ```
 
-### `npm test`
+3. Démarrez le serveur de développement :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   npm run start
+   ```
 
-### `npm run build`
+Le front sera disponible sur le port `3000`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Ou bien, vous pouvez démarrer avec Docker en utilisant `docker-compose` :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```bash
+   docker-compose up
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Cela démarrera le frontend dans un container Docker.
 
-### `npm run eject`
+## Installation du Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Allez dans le répertoire du backend et installez les dépendances :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. Démarrez le serveur backend :
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```bash
+   npm run start
+   ```
 
-## Learn More
+Ou bien, utilisez `nest start` si vous utilisez NestJS :
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   nest start
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Le backend sera disponible sur le port `8080`.
+
+Vous pouvez également démarrer le backend avec Docker :
+
+   ```bash
+   docker-compose up
+   ```
+
+Cela démarrera le backend dans un container Docker.
+
+## Swagger API Documentation
+
+Une documentation Swagger de l'API est disponible à l'adresse suivante :
+
+[http:localhost:8080/api-docs](http:localhost:8080/api-docs)
+
+## Routes Frontend
+
+Le front-end contient les routes suivantes :
+
+- `/home` : Page d'accueil
+- `/login` : Page de connexion
+- `/register` : Page d'inscription
+- `/profile` : Page de profil utilisateur
+- `/search` : Page de recherche
+- `/cart` : Page de panier
+- `/admin` : Page d'administration des produits
+- `/admin/order` : Page de gestion des commandes 
+- `/admin/edit/:id` : Page de modification d'une commande
+- `/category/:categoryName` : Page d'une catégorie spécifique
+- `/article/:articleName` : Page de détails d'un article
+- `/profile/edit` : Page de modification du profil utilisateur
+- `/profile/order` : Page des commandes utilisateur
+- `/admin/order/:id` : Page de modification d'une commande admin
+
+## Configuration Docker
+
+Si vous préférez utiliser Docker, vous pouvez démarrer les deux parties (frontend et backend) avec les commandes `docker-compose up` respectivement dans les dossiers `frontend` et `backend`.
+
