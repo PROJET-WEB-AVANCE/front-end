@@ -78,7 +78,7 @@ Mot de passe : sales123
 
 Admin
 
-Email : admin@insa-cvl.fr
+Email : quentin.dollen@insa-cvl.fr
 
 Mot de passe : admin123
 
