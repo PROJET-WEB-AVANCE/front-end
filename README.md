@@ -60,6 +60,28 @@ Vous pouvez également démarrer le backend avec Docker :
 
 Cela démarrera le backend dans un container Docker.
 
+## Comptes de test disponibles
+
+Pour tester l'application, vous pouvez utiliser les comptes suivants :
+
+Client
+
+Email : client@insa-cvl.fr
+
+Mot de passe : client123
+
+Vendeur
+
+Email : julien.sanchez@insa-cvl.fr
+
+Mot de passe : sales123
+
+Admin
+
+Email : admin@insa-cvl.fr
+
+Mot de passe : admin123
+
 ## Swagger API Documentation
 
 Une documentation Swagger de l'API est disponible à l'adresse suivante :
